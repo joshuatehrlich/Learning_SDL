@@ -1,0 +1,43 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "msbuild",
+            "args": [
+                "/property:GenerateFullPaths=true",
+                "/t:build",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++.exe build SDL3 project",
+            "command": "C:\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "-I${workspaceFolder}\\include",       // Add SDL3 headers path
+                "-L${workspaceFolder}\\lib",           // Add SDL3 library path
+                "-lSDL3"                              // Link SDL3 library
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": ["$gcc"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
