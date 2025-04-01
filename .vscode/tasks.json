@@ -23,7 +23,8 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${file}",
+                "${workspaceFolder}/src/main.cpp",     // Explicitly list all files
+                "${workspaceFolder}/src/input.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
                 "-I${workspaceFolder}\\include",       // Add SDL3 headers path
